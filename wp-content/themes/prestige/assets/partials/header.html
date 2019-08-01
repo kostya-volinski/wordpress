@@ -2,7 +2,22 @@
     <div class="nav-bar">
         <div class="bar">
             <div class="bar-menu">
-                <img src="images/menu.svg" alt=""> <span class="sr-only"><a href=""><img src="images/menu.svg" alt=""></a></span>
+                <a class="knop" data-toggle="dropdown" href="javascript:void(0);"><img src="images/menu.svg" alt=""> <span class="sr-only"></span></a>
+                <div class="mini-menu">
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <ul>
+                        <li><a href="">ПРО НАС</a></li>
+                        <li><a href="">СКОРО У ПРОДАЖУ</a></li>
+                        <li><a href="">ТАБЛИЦЯ РОЗМІРІВ</a></li>
+                        <li><a href="">КЛІЄНТАМ</a></li>
+                        <li><a href="">ПАРТНЕРАМ</a></li>
+                        <li><a href="">НОВИНИ</a></li>
+                        <li><a href="">ВІДГУКИ</a></li>
+                        <li><a href="">КОНТАКТИ</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="menu-right-bar">
                 <a href="">MENU</a>
@@ -50,18 +65,77 @@
 <div class="container">
     <div class="next-menu">
         <ul>
-            <li><a href="#">Жінкам</a></li>
-            <li><a href="#">Чоловікам</a></li>
-            <li><a href="#">Дітям</a></li>
+            <li class="nav-item-woman">
+                <a href="#">Жінкам</a>
+                <div class="descr-woman">
+                    <div class="des">
+                        <a href=""><img src="images/woman-1.png" alt=""></a>
+                        <a href="">Довгі шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/woman-2.png" alt=""></a>
+                        <a href="">Класичні шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/woman-3.png" alt=""></a>
+                        <a href="">Короткі шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/woman-4.png" alt=""></a>
+                        <a href="">Слід, послідок</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item-man">
+                <a  href="#">Чоловікам</a>
+                <div class="descr-man">
+                    <div class="des">
+                        <a href=""><img src="images/man-1.png" alt=""></a>
+                        <a href="">Довгі шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/man-2.png" alt=""></a>
+                        <a href="">Класичні шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/man-3.png" alt=""></a>
+                        <a href="">Короткі шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/man-4.png" alt=""></a>
+                        <a href="">Слід, послідок</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item-child">
+                <a href="#">Дітям</a>
+                <div class="descr-child">
+                    <div class="des">
+                        <a href=""><img src="images/kid-1.png" alt=""></a>
+                        <a href="">Довгі шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/kid-2.png" alt=""></a>
+                        <a href="">Класичні шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/kid-3.png" alt=""></a>
+                        <a href="">Короткі шкарпетки</a>
+                    </div>
+                    <div class="des">
+                        <a href=""><img src="images/kid-4.png" alt=""></a>
+                        <a href="">Слід, послідок</a>
+                    </div>
+                </div>
+            </li>
             <li><a href="#"><i>Sale</i></a></li>
             <li><a href="#">Підписка</a></li>
             <li><a href="#">Подарункові коробки</a></li>
         </ul>
     </div>
+    </div>
     <div class="drop-next-menu">
-        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Каталог  продукції
-        </a>
+        <a class="item-menu-drop" href="javascript:void(1);">Каталог продукції</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a href="#">Жінкам</a>
             <a href="#">Чоловікам</a>
@@ -69,6 +143,10 @@
             <a href="#"><i>Sale</i></a>
             <a href="#">Підписка</a>
             <a href="#">Подарункові коробки</a>
+            <div class="descr">
+                Какой-то текст который должен быть в блоке<br>
+                <a href="#">Интересная ссылка</a>
+            </div>
         </div>
     </div>
 </div>

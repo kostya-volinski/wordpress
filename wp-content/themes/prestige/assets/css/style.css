@@ -1,4 +1,28 @@
 @font-face {
+  font-family: 'Geometria';
+  src: local("Geometria Thin"), local("Geometria-Thin"), url("../fonts/Geometria-Thin.woff2") format("woff2"), url("../fonts/Geometria-Thin.woff") format("woff"), url("../fonts/Geometria-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Geometria-Reg';
+  src: local("Geometria Regular"), local("Geometria-Regular"), url("../fonts/Geometria-Regular.woff2") format("woff2"), url("../fonts/Geometria-Regular.woff") format("woff"), url("../fonts/Geometria-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Geometria-Extra';
+  src: local("Geometria ExtraLight"), local("Geometria-ExtraLight"), url("../fonts/Geometria-ExtraLight.woff2") format("woff2"), url("../fonts/Geometria-ExtraLight.woff") format("woff"), url("../fonts/Geometria-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Geometria-Bold';
+  src: local("Geometria Bold"), local("Geometria-Bold"), url("../fonts/Geometria-Bold.woff2") format("woff2"), url("../fonts/Geometria-Bold.woff") format("woff"), url("../fonts/Geometria-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon.eot?k7tvad");
   src: url("../fonts/icomoon.eot?k7tvad#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?k7tvad") format("truetype"), url("../fonts/icomoon.woff?k7tvad") format("woff"), url("../fonts/icomoon.svg?k7tvad#icomoon") format("svg");

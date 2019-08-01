@@ -69,8 +69,8 @@
                 КОНТАКТИ
                 <div class="list">
                     <ul>
-                        <li><a href="">+38 (096) 762-40-96</a></li>
-                        <li><a href="">Nesterenkoluda.ln@gmail.com</a></li>
+                        <li><a href=""><?php echo get_field('phone', 'options'); ?></a></li>
+                        <li><a href=""><?php echo get_field('email', 'options'); ?></a></li>
                         <li class="contacts">
                             <a href=""><img src="images/facebook-logo.svg" alt=""></a>
                             <a href=""><img src="images/instagram-social-outlined-logo.svg" alt=""></a>

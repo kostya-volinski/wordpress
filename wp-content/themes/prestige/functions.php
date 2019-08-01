@@ -121,11 +121,10 @@ add_action( 'widgets_init', 'prestige_widgets_init' );
  */
 function prestige_scripts() {
 	wp_enqueue_style( 'prestige-style', get_stylesheet_uri() );
-    wp_enqueue_style( 'prestige-main', get_template_directory_uri(). '/assets/css/main.css');
-    wp_enqueue_style( 'prestige-media', get_template_directory_uri(). '/assets/css/media.css');
-    wp_enqueue_style( 'prestige-lib', get_template_directory_uri(). '/assets/css/lib.css');
-    wp_enqueue_style( 'prestige-style', get_template_directory_uri(). '/assets/css/style.css');
-
+    wp_enqueue_style( 'prestige-media', get_template_directory_uri(). '/assets/css/media.css', true);
+    wp_enqueue_style( 'prestige-main', get_template_directory_uri(). '/assets/css/main.css', true);
+    wp_enqueue_style( 'prestige-new', get_template_directory_uri(). '/assets/css/style.css', true);
+    wp_enqueue_style( 'prestige-lib', get_template_directory_uri(). '/assets/css/lib.css' ,true);
 
 	wp_enqueue_script( 'prestige-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
     wp_enqueue_script( 'prestige-js-lib', get_template_directory_uri() . '/assets/js/lib.js');
@@ -173,9 +172,9 @@ function register_post_types(){
     register_post_type('products', array(
         'label'  => null,
         'labels' => array(
-            'name'               => '____', // основное название для типа записи
-            'singular_name'      => '____', // название для одной записи этого типа
-            'add_new'            => 'Добавить ____', // для добавления новой записи
+            'name'               => 'Продукти', // основное название для типа записи
+            'singular_name'      => 'Продукти', // название для одной записи этого типа
+            'add_new'            => 'Добавить', // для добавления новой записи
             'add_new_item'       => 'Добавление ____', // заголовка у вновь создаваемой записи в админ-панели.
             'edit_item'          => 'Редактирование ____', // для редактирования типа записи
             'new_item'           => 'Новое ____', // текст новой записи
@@ -184,7 +183,7 @@ function register_post_types(){
             'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
             'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
             'parent_item_colon'  => '', // для родителей (у древовидных типов)
-            'menu_name'          => '____', // название меню
+            'menu_name'          => 'Продукти', // название меню
         ),
         'description'         => '',
         'public'              => true,
@@ -207,6 +206,142 @@ function register_post_types(){
         'has_archive'         => false,
         'rewrite'             => true,
         'query_var'           => true,
+    ) );
+}
+
+
+add_action( 'init', 'register_post_author' );
+function register_post_author(){
+    register_post_type('post_author', array(
+        'label'  => null,
+        'labels' => array(
+            'name'               => 'Про компанію', // основное название для типа записи
+            'singular_name'      => 'Про компанію', // название для одной записи этого типа
+            'add_new'            => 'Добавить', // для добавления новой записи
+            'add_new_item'       => 'Добавление', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item'          => 'Редактирование ____', // для редактирования типа записи
+            'new_item'           => 'Новое ____', // текст новой записи
+            'view_item'          => 'Смотреть ____', // для просмотра записи этого типа.
+            'search_items'       => 'Искать ____', // для поиска по этим типам записи
+            'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+            'parent_item_colon'  => '', // для родителей (у древовидных типов)
+            'menu_name'          => 'Про компанію', // название меню
+        ),
+        'description'         => '',
+        'public'              => true,
+        'publicly_queryable'  => null, // зависит от public
+        'exclude_from_search' => null, // зависит от public
+        'show_ui'             => null, // зависит от public
+        'show_in_menu'        => null, // показывать ли в меню адмнки
+        'show_in_admin_bar'   => null, // по умолчанию значение show_in_menu
+        'show_in_nav_menus'   => null, // зависит от public
+        'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+        'rest_base'           => null, // $post_type. C WP 4.7
+        'menu_position'       => null,
+        'menu_icon'           => null,
+        //'capability_type'   => 'post',
+        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+        'hierarchical'        => false,
+        'supports'            => array('title','editor'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies'          => array(),
+        'has_archive'         => false,
+        'rewrite'             => true,
+        'query_var'           => true,
+    ) );
+}
+
+
+
+
+acf_add_options_page( array(
+
+    /* (string) The title displayed on the options page. Required. */
+    'page_title' => 'Контакти',
+
+    /* (string) The title displayed in the wp-admin sidebar. Defaults to page_title */
+    'menu_title' => 'Контакти',
+
+    /* (string) The URL slug used to uniquely identify this options page.
+    Defaults to a url friendly version of menu_title */
+    'menu_slug' => 'contacts',
+
+    /* (string) The capability required for this menu to be displayed to the user. Defaults to edit_posts.
+    Read more about capability here: http://codex.wordpress.org/Roles_and_Capabilities */
+    'capability' => 'edit_posts',
+
+    /* (int|string) The position in the menu order this menu should appear.
+    WARNING: if two menu items use the same position attribute, one of the items may be overwritten so that only one item displays!
+    Risk of conflict can be reduced by using decimal instead of integer values, e.g. '63.3' instead of 63 (must use quotes).
+    Defaults to bottom of utility menu items */
+    'position' => false,
+
+    /* (string) The slug of another WP admin page. if set, this will become a child page. */
+    'parent_slug' => '',
+
+    /* (string) The icon class for this menu. Defaults to default WordPress gear.
+    Read more about dashicons here: https://developer.wordpress.org/resource/dashicons/ */
+    'icon_url' => false,
+
+    /* (boolean) If set to true, this options page will redirect to the first child page (if a child page exists).
+    If set to false, this parent page will appear alongside any child pages. Defaults to true */
+    'redirect' => true,
+
+    /* (int|string) The '$post_id' to save/load data to/from. Can be set to a numeric post ID (123), or a string ('user_2').
+    Defaults to 'options'. Added in v5.2.7 */
+    'post_id' => 'options',
+
+    /* (boolean)  Whether to load the option (values saved from this options page) when WordPress starts up.
+    Defaults to false. Added in v5.2.8. */
+    'autoload' => false,
+
+    /* (string) The update button text. Added in v5.3.7. */
+    'update_button'		=> __('Update', 'acf'),
+
+    /* (string) The message shown above the form on submit. Added in v5.6.0. */
+    'updated_message'	=> __("Options Updated", 'acf'),
+
+)
+);
+
+add_action( 'init', 'create_taxonomy' );
+function create_taxonomy(){
+    // список параметров: http://wp-kama.ru/function/get_taxonomy_labels
+    register_taxonomy('taxonomy', array('products'), array(
+        'label'                 => '', // определяется параметром $labels->name
+        'labels'                => array(
+            'name'              => 'category',
+            'singular_name'     => 'category',
+            'search_items'      => 'Search Genres',
+            'all_items'         => 'All Genres',
+            'view_item '        => 'View Genre',
+            'parent_item'       => 'Parent Genre',
+            'parent_item_colon' => 'Parent Genre:',
+            'edit_item'         => 'Edit Genre',
+            'update_item'       => 'Update Genre',
+            'add_new_item'      => 'Add New Genre',
+            'new_item_name'     => 'New Genre Name',
+            'menu_name'         => 'Genre',
+        ),
+        'description'           => '', // описание таксономии
+        'public'                => true,
+        'publicly_queryable'    => null, // равен аргументу public
+        'show_in_nav_menus'     => true, // равен аргументу public
+        'show_ui'               => true, // равен аргументу public
+        'show_in_menu'          => true, // равен аргументу show_ui
+        'show_tagcloud'         => true, // равен аргументу show_ui
+        'show_in_rest'          => null, // добавить в REST API
+        'rest_base'             => null, // $taxonomy
+        'hierarchical'          => true,
+        //'update_count_callback' => '_update_post_term_count',
+        'rewrite'               => true,
+        //'query_var'             => $taxonomy, // название параметра запроса
+        'capabilities'          => array(),
+        'meta_box_cb'           => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
+        'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+        '_builtin'              => false,
+        'show_in_quick_edit'    => null, // по умолчанию значение show_ui
     ) );
 }
 
